@@ -19,5 +19,13 @@ def decode_word(word_char)
   word
 end
 
+def decode(str)
+  new_str = ''
+  new_word_array = str.split('  ')
+  new_word_array.map { |word| new_str += "#{word.split.map { |text| decode_word(text) }.join} " }
+  new_str
+end
+
 puts decode_char('....')
 puts decode_word('-- -.--')
+puts decode('.... . .-.. .-.. --- /  .-- --- .-. .-.. -..')
